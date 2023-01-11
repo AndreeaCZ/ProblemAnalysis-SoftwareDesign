@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+  <h1>Basket</h1>
+    <ul>
+    {% for item in basket.item_set.all %}
+        <li>{{ item.quantity }} <a href="{% url 'item' item.id %}">{{ item.product.name }}</a></li>
+    {% endfor %}
+    </ul>
+    <h4>Total price: {{ basket.price }} cents</h4>
+    <h3>
+        {% if basket.item_set.all.count > 0 %}
+            <a href="{% url 'order' %}"> Place order</a>
+        {% endif %}
+    </h3>
+
+    <div style="position: absolute; top: 20px; right: 150px">
+        <a href="{% url 'index' %}">Products List</a>
+    </div>
+    <div style="position: absolute; top: 20px; right: 85px">
+        <a href="{% url 'basket' %}">Basket</a>
+    </div>
+    <div style="position: absolute; top: 20px; right: 20px">
+        <a href="{% url 'shopper' %}">Profile</a>
+    </div>
+{% endblock %}

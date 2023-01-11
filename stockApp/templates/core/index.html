@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+  <h1>Supermarket stock:</h1>
+  <ul>
+    {% for prod in prods %}
+        <li><a href="{% url 'product' prod.id %}">{{ prod.name }} - {{ prod.price_in_cents }} cents</a></li>
+    {% endfor %}
+    </ul>
+
+    <div style="position: absolute; top: 20px; right: 150px">
+        <a href="{% url 'index' %}">Products List</a>
+    </div>
+    <div style="position: absolute; top: 20px; right: 85px">
+        <a href="{% url 'basket' %}">Basket</a>
+    </div>
+    <div style="position: absolute; top: 20px; right: 20px">
+        <a href="{% url 'shopper' %}">Profile</a>
+    </div>
+
+{% endblock %}

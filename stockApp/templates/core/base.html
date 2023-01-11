@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load google_translate %}
+<head>
+    <meta charset="UTF-8">
+    <title>StockApp</title>
+</head>
+<body>
+    <div>{% google_translate %}</div>
+    <div class="content">
+        {% block content%} {% endblock %}
+    </div>
+</body>
+</html>

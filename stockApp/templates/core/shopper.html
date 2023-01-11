@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <h1>{{ shopper.name }}</h1>
+    <h4><a href="{% url 'basket' %}">Show basket</a></h4>
+    <h3>Past orders:</h3>
+    <ul>
+    {% for order in shopper.order_set.all %}
+        <li><a href="{% url 'orderConf' order.id %}">Order {{ order.id }} placed on {{ order.date }}</a></li>
+    {% endfor %}
+    </ul>
+
+    <div style="position: absolute; top: 20px; right: 150px">
+        <a href="{% url 'index' %}">Products List</a>
+    </div>
+    <div style="position: absolute; top: 20px; right: 85px">
+        <a href="{% url 'basket' %}">Basket</a>
+    </div>
+    <div style="position: absolute; top: 20px; right: 20px">
+        <a href="{% url 'shopper' %}">Profile</a>
+    </div>
+{% endblock %}

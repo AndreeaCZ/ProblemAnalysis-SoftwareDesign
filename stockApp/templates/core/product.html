@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <h1>{{ product.name }}</h1>
+    <ul>
+        <li>Price: {{ product.price_in_cents }} cents </li>
+        <li>VAT: {{ product.vat_rate }}</li>
+        <li>Available in stock: {{ product.stock }}</li>
+    </ul>
+    <h4><a href="{% url 'basket_add' product.id %}">Add to basket</a></h4>
+
+    <div style="position: absolute; top: 20px; right: 150px">
+        <a href="{% url 'index' %}">Products List</a>
+    </div>
+    <div style="position: absolute; top: 20px; right: 85px">
+        <a href="{% url 'basket' %}">Basket</a>
+    </div>
+    <div style="position: absolute; top: 20px; right: 20px">
+        <a href="{% url 'shopper' %}">Profile</a>
+    </div>
+{% endblock %}
